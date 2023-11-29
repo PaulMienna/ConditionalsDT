@@ -1,0 +1,33 @@
+/* bakgrunn */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: darkseagreen;
+  height: 50vh;
+}
+/* Conditionals oppgave */
+h1 {
+  text-align: center;
+  margin: 0;
+  pad: 20px;
+}
+
+/* results box */
+.results {
+  position: fixed;
+  border: 1px solid;
+  top: 300px;
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+  background-color: antiquewhite;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+/* text opacity for results */
+.results.show {
+  opacity: 1;
+}
