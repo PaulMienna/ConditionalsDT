@@ -1,26 +1,29 @@
 console.log("Hello World");
-
+// label
 let userAge = "";
 let userName = "";
-
+let userIsBanned = false;
+// input commands
 function confirmAgeAndName() {
   const inputUserName = document.getElementById("userName").value;
   const inputUserAge = parseInt(document.getElementById("userAge").value);
   const results = document.getElementById("results");
   // Resultat i konsoll
-  if (inputUserName && inputUserAge >= 18) {
-    console.log("User is above age and is allowed to enter for drinks");
+  event.preventDefault();
+  if (inputUserName && inputUserAge >= 18 && !userIsBanned) {
+    console.log(
+      `${inputUserName} is above age and is allowed to enter for drinks`
+    );
   } else {
     console.log(
-      "User is under the legal drinking age and therefore must leave"
+      `${inputUserName} is under the legal drinking age and therefore must leave`
     );
   }
   // Resultat i resultatboks
-  if (inputUserName && inputUserAge >= 18) {
-    results.innerHTML = "User is above age and is allowed to enter for drinks";
+  if (inputUserName && inputUserAge >= 18 && !userIsBanned) {
+    results.innerHTML = `${inputUserName} is above age and is allowed to enter for drinks`;
   } else {
-    results.innerHTML =
-      "User is under the legal drinking age and therefore must leave";
+    results.innerHTML = `${inputUserName} is under the legal drinking age, or banned and therefore must leave`;
   }
   // Boks viser resultat
   results.classList.add("show");
