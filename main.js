@@ -1,10 +1,11 @@
 console.log("Hello World");
 // label
-let userAge = "";
 let userName = "";
+let userAge = "";
 let userIsBanned = false;
+const submitButton = document.getElementById("submit-btn");
 // input commands
-function confirmAgeAndName() {
+function confirmNameAndAge() {
   const inputUserName = document.getElementById("userName").value;
   const inputUserAge = parseInt(document.getElementById("userAge").value);
   const results = document.getElementById("results");
@@ -16,21 +17,15 @@ function confirmAgeAndName() {
     );
   } else {
     console.log(
-      `${inputUserName} is under the legal drinking age and therefore must leave`
+      `${inputUserName} is under the legal drinking age, or banned and therefore must leave`
     );
   }
   // Resultat i resultatboks
   if (inputUserName && inputUserAge >= 18 && !userIsBanned) {
     results.innerHTML = `${inputUserName} is above age and is allowed to enter for drinks`;
   } else {
-    results.innerHTML = `${inputUserName} is under the legal drinking age, or banned and therefore must leave`;
+    results.innerHTML = `${inputUserName} is under the legal drinking age and therefore must leave`;
   }
   // Boks viser resultat
   results.classList.add("show");
 }
-// EventListener for Enter, med å klikke enter så slipper du å klikke "Confirm"
-document.addEventListener("keypress", function (e) {
-  if (e.key === "Enter") {
-    confirmAgeAndName();
-  }
-});
